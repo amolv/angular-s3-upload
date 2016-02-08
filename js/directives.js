@@ -9,11 +9,13 @@ directives.directive('file', function() {
       file: '@'
     },
     link: function(scope, el, attrs){
+      var values = [];
       el.bind('change', function(event){
         var files = event.target.files;
-        var file = files[0];
-        scope.file = file;
-        scope.$parent.file = file;
+        // values.push(files); 
+        // var file = files[0];
+        scope.file = files;
+        scope.$parent.file = files;
         scope.$apply();
       });
     }
